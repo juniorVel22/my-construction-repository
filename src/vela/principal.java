@@ -23,7 +23,7 @@ public class principal {
         e1.descuentos(cod);
         e1.totalPagar(cod);
 
-	System.out.println("continuaremos mas tarde");
+	System.out.println("continuaremos mas tarde con este proyecto porque no hay tiempo");
         
     }
 }
