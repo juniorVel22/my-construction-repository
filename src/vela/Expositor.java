@@ -11,7 +11,11 @@ public class Expositor {
     protected String nombre;
     protected String apellido;
     protected String correo;
-
+    protected Evento evento;
+    public Expositor() {
+    }
+    
+    
     public Expositor(String codigo, String nombre, String apellido, String correo) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -51,9 +55,18 @@ public class Expositor {
         this.correo = correo;
     }
 
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    
     @Override
     public String toString() {
-        return "Expositor{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + '}';
+        return "Expositor{" + "Evento="+evento.getTitulo() + ", codigo=" + codigo + ", nombre=" + nombre +" "+ apellido + ", correo=" + correo + '}';
     }
     
     

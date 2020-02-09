@@ -9,11 +9,16 @@ public class Asistente extends Expositor {
     private int telefono;
     private String direccion;
 
+    public Asistente() {
+    }
+    
+    
     public Asistente(int telefono, String direccion, String codigo, String nombre, String apellido, String correo) {
         super(codigo, nombre, apellido, correo);
         this.telefono = telefono;
         this.direccion = direccion;
     }
+
 
     public int getTelefono() {
         return telefono;
@@ -33,7 +38,7 @@ public class Asistente extends Expositor {
 
     @Override
     public String toString() {
-        return "Asistente{" + "telefono=" + telefono + ", direccion=" + direccion + '}';
+        return "Asistente{" +"Evento="+evento.getTitulo()+", nombre="+nombre+" "+apellido+", telefono=" + telefono + ", direccion=" + direccion + '}';
     }
     
    
