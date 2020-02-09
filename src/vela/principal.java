@@ -22,6 +22,8 @@ public class principal {
         e1.costoIngreso(cod);
         e1.descuentos(cod);
         e1.totalPagar(cod);
+
+	System.out.println("continuaremos mas tarde");
         
     }
 }
