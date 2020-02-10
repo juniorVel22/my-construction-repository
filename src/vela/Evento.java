@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Evento {
+public class Evento implements CRUD{
     Scanner sc=new Scanner(System.in);
     private String titulo;
-    private int duracion;
-    private int horaIngreso;
-    private int horaSalida;
+    private String duracion;
+    private String horaIngreso;
+    private String horaSalida;
     private boolean temporadaAlta;
     
     private Constantes constantes=new Constantes();
@@ -26,7 +26,7 @@ public class Evento {
     public Evento(){
         
     }
-    public Evento(String titulo, int duracion, int horaIngreso, int horaSalida, boolean temporadaAlta) {
+    public Evento(String titulo, String duracion, String horaIngreso, String horaSalida, boolean temporadaAlta) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.horaIngreso = horaIngreso;
@@ -65,27 +65,27 @@ public class Evento {
         this.titulo = titulo;
     }
 
-    public int getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 
-    public int getHoraIngreso() {
+    public String getHoraIngreso() {
         return horaIngreso;
     }
 
-    public void setHoraIngreso(int horaIngreso) {
+    public void setHoraIngreso(String horaIngreso) {
         this.horaIngreso = horaIngreso;
     }
 
-    public int getHoraSalida() {
+    public String getHoraSalida() {
         return horaSalida;
     }
 
-    public void setHoraSalida(int horaSalida) {
+    public void setHoraSalida(String horaSalida) {
         this.horaSalida = horaSalida;
     }
 
@@ -95,6 +95,26 @@ public class Evento {
 
     public void setTemporadaAlta(boolean temporadaAlta) {
         this.temporadaAlta = temporadaAlta;
+    }
+    
+    public Expositor getEstudiante(String cod) {
+        for(Expositor e : expositores) {
+            if(e.getCodigo().equalsIgnoreCase(cod)) {
+                    return e;
+            }
+        }
+
+        return null;
+    }
+    
+    public Asistente getAsistente(String cod) {
+        for(Asistente a : asistentes) {
+            if(a.getCodigo().equalsIgnoreCase(cod)) {
+                    return a;
+            }
+        }
+
+        return null;
     }
     
     public void costoIngreso(int cod){
@@ -174,16 +194,16 @@ public class Evento {
     public void AgregarEvento(){
         
         String t;
-        int d,Hi,Hs;
+        String d,Hi,Hs;
         boolean temA;
         System.out.print("Ingrese titulo:");
         t=sc.nextLine();
         System.out.print("Ingrese duracion:");
-        d=sc.nextInt();
+        d=sc.nextLine();
         System.out.print("Ingrese hora ingreso:");
-        Hi=sc.nextInt();
+        Hi=sc.nextLine();
         System.out.print("Ingrese hora salida:");
-        Hs=sc.nextInt();
+        Hs=sc.nextLine();
         System.out.print("¿es temporada alta?: ");
         temA=sc.nextBoolean();
         
@@ -201,6 +221,7 @@ public class Evento {
                 
     }
     
+    @Override
     public void agregarExpositor(Expositor e){
         String codE,nomE,apE,correoE;
         System.out.print("ingrese codigo:");
@@ -223,6 +244,7 @@ public class Evento {
         
     }
     
+    @Override
     public void AgregarAsistente(Asistente a){
         String codA,nomA,apA,correoA,dir;
         int tel;
@@ -253,11 +275,55 @@ public class Evento {
         a.getDireccion();
         a.getTelefono();
     }
+    
+    @Override
+    public void EliminarExpositor(String cod) {
+       boolean encontrado=false;
+       int i=0;
+       Expositor e=getEstudiante(cod);
+       while(encontrado==false && i<expositores.size()){
+           if(expositores.get(i).getCodigo().equalsIgnoreCase(cod)){
+               encontrado=true;
+           }else{
+               i++;
+           }
+           
+       }
+       if(encontrado==true){
+           expositores.remove(i);
+           System.out.println("Expositor "+e.getNombre()+" eliminado correctamente");
+       }else{
+           System.out.println("Expositor no encontrado");
+       }
+    }
+    
+    @Override
+    public void EliminarAsistente(String cod){
+       boolean encontrado=false;
+       int i=0;
+       Asistente a=getAsistente(cod);
+       while(encontrado==false && i<asistentes.size()){
+           if(asistentes.get(i).getCodigo().equalsIgnoreCase(cod)){
+               encontrado=true;
+           }else{
+               i++;
+           }
+           
+       }
+       if(encontrado==true){
+           asistentes.remove(i);
+           System.out.println("Asistente "+a.getNombre()+" eliminado correctamente");
+       }else{
+           System.out.println("Asistente no encontrado");
+       }
+    }
 
     @Override
     public String toString() {
         return "Evento{" + "titulo=" + titulo + ", duracion=" + duracion + ", horaIngreso=" + horaIngreso + ", horaSalida=" + horaSalida + ", temporadaAlta=" + temporadaAlta + '}';
     }
+
+    
 
    
     

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vela;
 
 import java.util.Scanner;
@@ -15,14 +11,18 @@ public class principal {
         Scanner sc=new Scanner(System.in);
 
         Evento e1=new Evento();
+        System.out.println("AGREGA UN EVENTO");
         e1.AgregarEvento();
         System.out.println(e1.toString());
-          
+        System.out.println();
      
         int opciones;
         do{
            
-            System.out.println("Ingrese:\n"+"1.Agregar expositores\n"+"2.Agregar asistentes\n"+"3.Salir");
+            System.out.println("Ingrese una opcion:\n"+"1.Agregar expositores\n"+
+                    "2.Agregar asistentes\n"+
+                    "3.Eliminar expositor\n"+
+                    "4.Eliminar asistente\n"+"5.Salir");
             opciones=sc.nextInt();
            
             
@@ -59,12 +59,29 @@ public class principal {
                     
                     break;
                 case 3:
+                    String codDelE;
+                    System.out.print("Ingrese el codigo del Expositor que va a eliminar: ");
+                    codDelE=sc.next();
+                    e1.EliminarExpositor(codDelE);
+                    break;
+                case 4:
+                    String codDelA;
+                    System.out.print("Ingrese el codigo del Asistente que va a eliminar: ");
+                    codDelA=sc.next();
+                    e1.EliminarAsistente(codDelA);
+                    break;
+                case 5:
+                    System.out.println("expositores:");
+                    System.out.println(e1.mostrarExpositor());
+                    System.out.println("-----------------------------------------------------------");
+                    System.out.println("asistentes al evento");
+                    System.out.println(e1.mostrarAsistente());
                     break;
                 default:
                     System.out.println("opcion no encontrada");
                     
             }
-        }while(opciones!=3);
+        }while(opciones!=5);
         
     }
 }

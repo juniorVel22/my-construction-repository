@@ -66,7 +66,7 @@ public class Expositor {
     
     @Override
     public String toString() {
-        return "Expositor{" + "Evento="+evento.getTitulo() + ", codigo=" + codigo + ", nombre=" + nombre +" "+ apellido + ", correo=" + correo + '}';
+        return "Expositor{" + "Evento="+evento.getTitulo() + ", codigo=" + codigo + ", nombre=" + nombre +" "+ apellido + ", correo=" + correo + '}'+"\n";
     }
     
     

@@ -38,7 +38,7 @@ public class Asistente extends Expositor {
 
     @Override
     public String toString() {
-        return "Asistente{" +"Evento="+evento.getTitulo()+", nombre="+nombre+" "+apellido+", telefono=" + telefono + ", direccion=" + direccion + '}';
+        return "Asistente{" +"Evento="+evento.getTitulo()+", nombre="+nombre+" "+apellido+", telefono=" + telefono + ", direccion=" + direccion + '}'+"\n";
     }
     
    
