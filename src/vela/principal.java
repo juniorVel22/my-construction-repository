@@ -22,7 +22,9 @@ public class principal {
             System.out.println("Ingrese una opcion:\n"+"1.Agregar expositores\n"+
                     "2.Agregar asistentes\n"+
                     "3.Eliminar expositor\n"+
-                    "4.Eliminar asistente\n"+"5.Salir");
+                    "4.Eliminar asistente\n"+
+                    "5.Mostrar Expositores\n"+
+                    "6.Mostrar asistentes\n"+"7.Salir");
             opciones=sc.nextInt();
            
             
@@ -71,17 +73,22 @@ public class principal {
                     e1.EliminarAsistente(codDelA);
                     break;
                 case 5:
-                    System.out.println("expositores:");
-                    System.out.println(e1.mostrarExpositor());
                     System.out.println("-----------------------------------------------------------");
-                    System.out.println("asistentes al evento");
+                    System.out.println("Expositores:");
+                    System.out.println(e1.mostrarExpositor());
+                    break;
+                case 6:
+                    System.out.println("-----------------------------------------------------------");
+                    System.out.println("Asistentes al evento:");
                     System.out.println(e1.mostrarAsistente());
+                    break;
+                case 7:
                     break;
                 default:
                     System.out.println("opcion no encontrada");
                     
             }
-        }while(opciones!=5);
+        }while(opciones!=7);
         
     }
 }

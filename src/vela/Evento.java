@@ -97,7 +97,7 @@ public class Evento implements CRUD{
         this.temporadaAlta = temporadaAlta;
     }
     
-    public Expositor getEstudiante(String cod) {
+    public Expositor getExpositor(String cod) {
         for(Expositor e : expositores) {
             if(e.getCodigo().equalsIgnoreCase(cod)) {
                     return e;
@@ -280,7 +280,7 @@ public class Evento implements CRUD{
     public void EliminarExpositor(String cod) {
        boolean encontrado=false;
        int i=0;
-       Expositor e=getEstudiante(cod);
+       Expositor e=getExpositor(cod);
        while(encontrado==false && i<expositores.size()){
            if(expositores.get(i).getCodigo().equalsIgnoreCase(cod)){
                encontrado=true;
